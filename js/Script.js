@@ -26,6 +26,11 @@ class Paper {
 
     // ===== Movimento (mouse + touch) =====
     const moveHandler = (e) => {
+      // Evita a tela rolar no celular enquanto arrasta
+      if (e.type === "touchmove") {
+        e.preventDefault();
+      }
+
       const { x, y } = getEventXY(e);
 
       if (!this.rotating) {
